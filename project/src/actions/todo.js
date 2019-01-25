@@ -5,6 +5,7 @@ import {
   GET_TODOS,
   ADD_TODO,
   EDIT_TODO,
+  REPLACE_ORDER_TODO,
 } from './constants';
 
 export function getTodos() {
@@ -67,7 +68,6 @@ export function deleteTodo(listId, todoId) {
 }
 
 export function editTodo(listId, todoId, data) {
-  console.log(listId, todoId, data);
   return (dispatch, getState) => {
     dispatch({
       type: EDIT_TODO + START,
@@ -81,6 +81,21 @@ export function editTodo(listId, todoId, data) {
     dispatch({
       type: EDIT_TODO + SUCCESS,
       payload: { listId, todoId, data },
+    });
+    dispatch(getTodos());
+  };
+}
+
+export function replaceOrderTodo(data) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: REPLACE_ORDER_TODO + START,
+      payload: { data },
+    });
+
+    dispatch({
+      type: REPLACE_ORDER_TODO + SUCCESS,
+      payload: { data },
     });
     dispatch(getTodos());
   };

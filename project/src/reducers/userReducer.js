@@ -5,6 +5,7 @@ import {
   EDIT_TODO,
   ADD_TODO,
   GET_TODOS,
+  REPLACE_ORDER_TODO,
   START,
   SUCCESS,
   FAIL,

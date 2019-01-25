@@ -1,11 +1,17 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
-function NotFound(props) {
-  return (
-    <div>
-      <h1>Not Found 404!</h1>
-    </div>
-  );
+class NotFound extends React.Component {
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>Not Found 404</title>
+        </Helmet>
+        <h1>Not Found 404!</h1>
+      </div>
+    );
+  }
 }
 
 export default NotFound;

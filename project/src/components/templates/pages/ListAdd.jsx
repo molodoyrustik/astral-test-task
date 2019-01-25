@@ -36,22 +36,26 @@ class ListAdd extends Component {
     return (
       <div className="list-add">
         <h2 className="list-add__title">Add List</h2>
-        <ListAddInputGroup title='List title' subtitle='Title of new list'>
-          <input
-            type="text"
-            className="list-add__input"
-            placeholder='Title of list'
-            value={this.state.listTitle}
-            onChange={this.handleChange('listTitle')}
-          />
-        </ListAddInputGroup>
+        <ValidationHoc>
+          <form action="" className="list-add__form">
+            <ListAddInputGroup title='List title' subtitle='Title of new list'>
+              <input
+                type="text"
+                className="list-add__input"
+                placeholder='Title of list'
+                value={this.state.listTitle}
+                onChange={this.handleChange('listTitle')}
+              />
+            </ListAddInputGroup>
 
-        <div className="list-add__btns">
-          <Btn href='/dashboard/lists/' text='Back to List' type='grey'/>
-          <div className="list-add__create-btn-pos">
-            <Btn href='#' text='Create' type='blue' onClick={this.handleCreateDomain}/>
-          </div>
-        </div>
+            <div className="list-add__btns">
+              <Btn href='/dashboard/lists/' text='Back to List' type='grey'/>
+              <div className="list-add__create-btn-pos">
+                <Btn href='#' text='Create' type='blue' onClick={this.handleCreateDomain}/>
+              </div>
+            </div>
+          </form>
+        </ValidationHoc>
       </div>
     );
   }

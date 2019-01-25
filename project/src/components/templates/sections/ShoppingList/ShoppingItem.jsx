@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TodoSelect from './TodoSelect';
+import CustomSelect from '../../common/CustomSelect';
 
-import { handleError } from '../../../actions';
+import { handleError } from '../../../../actions';
 
 import {
   changeCompleted,
   deleteTodo,
   editTodo,
-} from '../../../actions/todo';
+} from '../../../../actions/todo';
 
 class Todo extends Component {
   state = {
@@ -81,12 +81,12 @@ class Todo extends Component {
     const clName = `todo-item ${todo.completed ? 'completed' : ''} ${this.state.editing ? 'editing' : ''}`;
     return (
       <li key={todo.id} className={clName}>
-        <input className="checkbox" type="checkbox" value={todo.completed} onChange={this.handleCompletedChange(parseInt(listId, 10), todo.id)}/>
+        <input className="checkbox" type="checkbox" value={todo.completed} onChange={this.handleCompletedChange(listId, todo.id)}/>
         <label className="title">{ todo.todoTitle }</label>
         <label className="title title--price">{ todo.price }$</label>
         <input className="textfield" type="text" value={this.state.newTodoTitle} onChange={this.handleInputChange('newTodoTitle')}/>
         <input className="textfield" type="text" value={this.state.newTodoPrice} onChange={this.handleInputChange('newTodoPrice')}/>
-        <TodoSelect
+        <CustomSelect
           isEditing={this.state.editing}
           value={this.state.selectedOption}
           onChange={this.handleSelectChange}
